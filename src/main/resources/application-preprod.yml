@@ -1,0 +1,38 @@
+server:
+  port: 8088
+  servlet:
+    context-path:
+  connection-timeout: 150000
+
+spring:
+  profiles: preprod
+  application:
+    name: supply-config-asia-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/dktunited/shiphub-configuration.git
+          search-paths: '{application}'
+          username: dktchinajenkins
+          password: 0b65b229543b428c5534d3403b33f12f0a42064a
+          force-pull: true
+
+eureka:
+  instance:
+    prefer-ip-address: false
+    virtualHostName: ${spring.application.name}
+    statusPageUrlPath: ${server.servlet.context-path}/actuator/info
+    homePageUrlPath: ${server.servlet.context-path}/actuator/
+    healthCheckUrlPath: ${server.servlet.context-path}/actuator/health
+    hostname: shiphub-asia-config.preprod.subsidia.org
+    non-secure-port: 8088
+    secure-port: 443
+    secure-port-enabled: true
+    instance-id: ${spring.application.name}:${server.port}
+    leaseRenewalIntervalInSeconds: 5
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: https://shiphub-asia-eureka.preprod.subsidia.org/peer1/eureka,https://shiphub-asia-eureka.preprod.subsidia.org/peer2/eureka
