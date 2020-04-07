@@ -9,12 +9,30 @@ spring:
       server:
         git:
           uri: https://github.com/CrazySnailNO001/cloud-config
-#          uri: https://github.com/dktunited/shiphub-configuration.git
-          search-paths: cloud-config
+          #          https://github.com/CrazySnailNO001/cloud-config-server
           username: CrazySnailNO001
           password: xzh1003665947
-          force-pull: true
+          default-label: master #配置文件分支
+          #          search-paths: cloud-config  #配置文件所在根目录
+          search-paths: cloud-config-client  #配置文件所在根目录
+#          search-paths: cloud-customer  #配置文件所在根目录
+#          search-paths: '{application}'
 
+eurekaServer:
+  host: localhost  #注册中心的地址
+  port: 8761       #注册中心服务端的端口号
+#  user: martin     #注册中心安全校验用户名
+#  password: 123456 #注册中心安全校验密码
+
+eureka:
+  server:
+    max-time-for-replication: 30000
+  client:
+    register-with-eureka: true  #将此项目注册到Eureka服务
+    service-url:
+      defaultZone: http://localhost:8761/eureka/    #注册地址
+    fetch-registry: true
+    #          defaultZone: http://${eurekaServer.user}:${eurekaServer.password}@${eurekaServer.host}:${eurekaServer.port}/eureka
 #eureka:
 #  instance:
 #    prefer-ip-address: false

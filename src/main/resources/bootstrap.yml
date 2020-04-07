@@ -1,14 +1,23 @@
-spring:
-  application:
-    name: config-server
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/CrazySnailNO001/cloud-config
-#          https://github.com/CrazySnailNO001/cloud-config-server
-          username:
-          password:
-          default-label: master #配置文件分支
-          search-paths: cloud-config  #配置文件所在根目录
+#spring:
+#  application:
+#    name: cloud-config-server
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          uri: https://github.com/CrazySnailNO001/cloud-config
+##          https://github.com/CrazySnailNO001/cloud-config-server
+#          username: CrazySnailNO001
+#          password: xzh1003665947
+#          default-label: master #配置文件分支
+##          search-paths: cloud-config  #配置文件所在根目录
+#          search-paths: cloud-provider01  #配置文件所在根目录
+##          search-paths: cloud-customer  #配置文件所在根目录
+##          search-paths: '{application}'
+
+#  访问:http://localhost:8760/configtest/dev/master
+#  访问:http://localhost:8760/configtest/dev
+#  访问:http://localhost:8760/master/configtest/dev
+#  访问:http://localhost:8760/configtest-dev.yml
+#  访问:http://localhost:8760/master/configtest-dev.yml
 
