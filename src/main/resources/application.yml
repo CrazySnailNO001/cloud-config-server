@@ -1,9 +1,9 @@
 spring:
   profiles:
-    active: local
-#    active: @profileActive@
+#    active: local
+    active: @profileActive@
 
-#自动更新配置
+#management 是关于 actuator 相关的，用于自动刷新配置
 management:
   endpoints:
     web:
