@@ -14,6 +14,8 @@ spring:
           default-label: master #配置文件分支
           #          search-paths: cloud-config-client  #配置文件所在根目录
           search-paths: '{application}' #动态配置文件所在根目录
+#                          config 客户端在没有 spring.cloud.config.name属性的时候，服务端{application} 获取的是客户端
+#                          spring.application.name的值，否则，获取的是 spring.cloud.config.name的值。
           timeout: 2 #单位s
           skip-ssl-validation: true #禁用配置服务器对Git服务器的SSL证书的验证
           force-pull: true #在本地副本脏的情况下从远程存储库强制拉出
